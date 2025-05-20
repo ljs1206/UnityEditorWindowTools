@@ -1,0 +1,24 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <Style src="project://database/Assets/SOManagementWindow/FileTree/FileTree.uss?fileID=7433441132597879392&amp;guid=2343cac005f842b438947073bb39e59c&amp;type=3#FileTree" />
+    <ui:VisualElement name="Group" style="flex-grow: 1;">
+        <uie:Toolbar name="TitleToolbar">
+            <ui:Label text="Label" name="TypeNameLabel" class="ljs-label" style="left: 5px; border-bottom-width: 0; -unity-text-align: middle-left;" />
+        </uie:Toolbar>
+        <SplitView fixed-pane-initial-dimension="200" style="background-color: rgba(255, 255, 255, 0); height: 400px;">
+            <ui:VisualElement name="FileTreeVisual" style="flex-grow: 1; border-right-color: rgb(0, 0, 0); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;">
+                <ui:ScrollView style="flex-grow: 1;">
+                    <ui:Foldout text="Foldout" toggle-on-label-click="true" value="false" name="RootFoldout" enabled="true" style="display: flex;" />
+                </ui:ScrollView>
+            </ui:VisualElement>
+            <ui:VisualElement name="InfoTab" style="flex-grow: 1; flex-direction: column-reverse;">
+                <ui:VisualElement name="BtnGroup" style="flex-grow: 0; flex-direction: row; height: 27px;">
+                    <ui:Button text="Create" name="CreateBtn" style="flex-grow: 1; flex-shrink: 1; -unity-font-definition: url(&quot;project://database/Assets/SOManagementWindow/Font/DNFForgedBlade-Light.ttf?fileID=12800000&amp;guid=1a54e8b4cbd09f74986c9f5fe2166f82&amp;type=3#DNFForgedBlade-Light&quot;);" />
+                    <ui:Button text="Cancel" name="CancelBtn" style="flex-shrink: 1; flex-grow: 1; -unity-font-definition: url(&quot;project://database/Assets/SOManagementWindow/Font/DNFForgedBlade-Light.ttf?fileID=12800000&amp;guid=1a54e8b4cbd09f74986c9f5fe2166f82&amp;type=3#DNFForgedBlade-Light&quot;);" />
+                </ui:VisualElement>
+                <ui:TextField label="FileName" focusable="true" name="FileNameField" style="height: 30px; bottom: 0;" />
+                <ui:ScrollView name="FileVisualList" style="flex-grow: 1;" />
+                <ui:Label text="Label" name="FolderNameLabel" class="ljs-label" style="left: 0;" />
+            </ui:VisualElement>
+        </SplitView>
+    </ui:VisualElement>
+</ui:UXML>

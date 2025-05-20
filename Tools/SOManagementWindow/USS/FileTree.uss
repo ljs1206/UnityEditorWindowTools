@@ -1,0 +1,77 @@
+.custom-label {
+    font-size: 20px;
+    -unity-font-style: bold;
+    color: rgb(68, 138, 255);
+}
+
+.unity-two-pane-split-view__dragline {
+    display: none;
+}
+
+.unity-two-pane-split-view__dragline-anchor {
+    display: none;
+}
+
+.file-icon {
+    flex-grow: 0;
+    width: 20px;
+    background-image: url("project://database/Assets/Layer%20Lab/GUI-TheStone/ResourcesData/Sprites/Components/UI_Etc/Toggle_Switch_On.Png?fileID=2800000&guid=2ff96032cccaa4cac810220fca1ff7a5&type=3#Toggle_Switch_On");
+    height: 20px;
+    bottom: -2px;
+}
+
+.file-name-label {
+    flex-grow: 1;
+    flex-direction: row;
+    white-space: pre-wrap;
+    -unity-text-align: middle-left;
+}
+
+.unity-scroll-view__content-container {
+    flex-grow: 0;
+}
+
+.file-visual {
+    flex-grow: 1;
+    height: 25px;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 1px;
+    border-left-width: 0;
+    border-left-color: rgb(20, 20, 20);
+    border-right-color: rgb(20, 20, 20);
+    border-top-color: rgb(20, 20, 20);
+    border-bottom-color: rgb(20, 20, 20);
+    white-space: nowrap;
+    flex-direction: row;
+    width: auto;
+}
+
+.unity-foldout__checkmark {
+    background-image: url("project://database/Assets/SOManagementWindow/Asset/Folder%20Icon.png?fileID=2800000&guid=37f7954445b090d4aa6ac9a1679cf50e&type=3#Folder Icon");
+    background-repeat: no-repeat no-repeat;
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-slice-left: 30;
+    -unity-slice-top: 30;
+    bottom: 1px;
+}
+
+Foldout > Toggle:checked .unity-foldout__checkmark {
+    background-image: url("project://database/Assets/SOManagementWindow/Asset/FolderOpened%20Icon.png?fileID=21300000&guid=4d80dfc7319226c4d9d31aad7691d8e1&type=3#FolderOpened Icon");
+    bottom: 1px;
+    -unity-slice-left: 30;
+}
+
+.ljs-label {
+    font-size: 15px;
+    border-left-color: rgb(32, 32, 32);
+    border-right-color: rgb(32, 32, 32);
+    border-top-color: rgb(32, 32, 32);
+    border-bottom-color: rgb(32, 32, 32);
+    border-bottom-width: 1px;
+    -unity-font-definition: url("project://database/Assets/SOManagementWindow/Font/DNFForgedBlade-Light.ttf?fileID=12800000&guid=1a54e8b4cbd09f74986c9f5fe2166f82&type=3#DNFForgedBlade-Light");
+}
+
+.unity-base-field__label {
+    -unity-font-definition: url("project://database/Assets/SOManagementWindow/Font/DNFForgedBlade-Light.ttf?fileID=12800000&guid=1a54e8b4cbd09f74986c9f5fe2166f82&type=3#DNFForgedBlade-Light");
+}

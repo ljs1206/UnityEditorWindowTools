@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52881286d9420a4585eb1ea001553de, type: 3}
+  m_Name: AssemblyLoadSystem
+  m_EditorClassIdentifier: 
+  _loadTypeNameList:
+  - AssemblyLoadSystem
+  - SOTypeTable
+  - GameEventChannelSO
+  - CurrencySO
+  - SaveIDSO
+  - AnimParamSO
+  - StateSO
+  - StatSO
+  - MergeObjectInfoSO
+  - TestSO
+  - DOTweenSettings
+  - RiderScriptableSingleton
+  - ScriptObjectSingleton`1
+  _loadAssemblyNameList:
+  - Assembly-CSharp
+  - BIS.Runtime.Core.Event
+  - BIS.Runtime.Data
+  - LJS.Animate
+  - LJS.Base
+  - LJS.Core
+  - LJS.MergeSystem
+  - LJS.Test
+  - DOTween
+  - JetBrains.Rider.Unity.Editor.Plugin.Net46.Repacked
+  GetAssemblyInfoList:
+  - assemblyName: Assembly-CSharp
+    typeNameList:
+    - LJS.Editing.SOManagement.AssemblyLoadSystem
+    - LJS.Editing.SOManagement.SOTypeTable
+  - assemblyName: BIS.Runtime.Core.Event
+    typeNameList:
+    - BIS.Runtime.Core.Event.GameEventChannelSO
+  - assemblyName: BIS.Runtime.Data
+    typeNameList:
+    - BIS.Runtime.Data.CurrencySO
+    - BIS.Runtime.Data.SaveIDSO
+  - assemblyName: LJS.Animate
+    typeNameList:
+    - LJS.Animate.AnimParamSO
+  - assemblyName: LJS.Base
+    typeNameList:
+    - LJS.Base.FSM.StateSO
+  - assemblyName: LJS.Core
+    typeNameList:
+    - LJS.Core.StatSystem.StatSO
+  - assemblyName: LJS.MergeSystem
+    typeNameList:
+    - LJS.MergeSystem.MergeObjectInfoSO
+  - assemblyName: LJS.Test
+    typeNameList:
+    - TestSO
+  - assemblyName: DOTween
+    typeNameList:
+    - DG.Tweening.Core.DOTweenSettings
+  - assemblyName: JetBrains.Rider.Unity.Editor.Plugin.Net46.Repacked
+    typeNameList:
+    - JetBrains.Rider.Unity.Editor.Utils.RiderScriptableSingleton
+    - 'JetBrains.Rider.Unity.Editor.Utils.ScriptObjectSingleton`1[T]'
