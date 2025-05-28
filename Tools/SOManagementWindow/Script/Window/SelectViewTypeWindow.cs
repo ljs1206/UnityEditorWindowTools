@@ -34,7 +34,7 @@ namespace LJS.Editing.SOManagement
             wnd.titleContent = new GUIContent("SelectViewTypeWindow");
         }
 
-        public async void SetInfo(List<Type> typeArray)
+        public void SetInfo(List<Type> typeArray)
         {
             _typeDict = new();
             _spawnToggleList = new();
