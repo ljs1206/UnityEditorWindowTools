@@ -1,0 +1,15 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/SOManagementWindow/USS/SelectViewTypeWindow.uss?fileID=7433441132597879392&amp;guid=d1e4bc6c935fd5d47b33ebe3b8dad95f&amp;type=3#SelectViewTypeWindow" />
+    <engine:VisualElement name="Toolbar" style="flex-grow: 0;">
+        <engine:VisualElement name="Group_1" style="flex-grow: 1; flex-direction: row;">
+            <engine:Label text="Select View Window" name="Title_Label" style="font-size: 15px; -unity-font-definition: url(&quot;project://database/Assets/SOManagementWindow/Font/DNFForgedBlade-Medium.ttf?fileID=12800000&amp;guid=57d31f5b8589fcb4685194f4e84723b1&amp;type=3#DNFForgedBlade-Medium&quot;); border-bottom-width: 1px; border-bottom-color: rgb(47, 47, 47);" />
+            <engine:Button text="Select Complete" name="CompleteBtn" style="-unity-font-definition: url(&quot;project://database/Assets/SOManagementWindow/Font/DNFForgedBlade-Medium.ttf?fileID=12800000&amp;guid=57d31f5b8589fcb4685194f4e84723b1&amp;type=3#DNFForgedBlade-Medium&quot;); align-self: flex-start;" />
+        </engine:VisualElement>
+        <engine:VisualElement name="Group_2" style="flex-grow: 1; flex-direction: row;">
+            <engine:Toggle label="All" name="Toggle_AllSelect" />
+            <engine:Toggle label="None" name="Toggle_None" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+    <editor:ToolbarPopupSearchField name="TypeSearchField" />
+    <engine:ScrollView name="ToggleScrollView" style="flex-grow: 1;" />
+</engine:UXML>

@@ -1,9 +1,8 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
     <Style src="project://database/Assets/SOManagementWindow/Template/TabSplitView.uss?fileID=7433441132597879392&amp;guid=c02caa07549ec1349bd3838df6ce35fd&amp;type=3#TabSplitView" />
-    <Style src="project://database/Assets/SOManagementWindow/USS/WindowUSS_Type_1.uss?fileID=7433441132597879392&amp;guid=4d8bf05f45ec2884e9c0cbfe150365af&amp;type=3#WindowUSS_Type_1" />
     <SplitView style="width: 900px; height: auto; flex-basis: auto;">
         <engine:VisualElement name="SerachTab" style="flex-grow: 0; width: 0; flex-basis: 250px; border-left-color: rgb(42, 42, 42); border-right-color: rgb(42, 42, 42); border-top-color: rgb(42, 42, 42); border-bottom-color: rgb(42, 42, 42); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;">
-            <engine:ScrollView name="ItemVisualTable" style="bottom: -1px; flex-grow: 1; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;">
+            <engine:ScrollView name="TabScrollView" style="bottom: -1px; flex-grow: 1; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;">
                 <editor:ToolbarPopupSearchField name="ItemSearchBar" style="width: 242px; border-left-color: rgb(42, 42, 42); border-right-color: rgb(42, 42, 42); border-top-color: rgb(42, 42, 42); border-bottom-color: rgb(42, 42, 42);" />
                 <engine:VisualElement name="ItemVisualList" focusable="true" style="flex-grow: 1;">
                     <engine:VisualElement name="ItemVisual" class="item-visual" style="flex-grow: 1; display: none;">

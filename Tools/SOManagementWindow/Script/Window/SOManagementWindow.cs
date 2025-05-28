@@ -60,6 +60,7 @@ namespace LJS.Editing.SOManagement
         ///  AssemblyLoad
         /// </summary>
         [SerializeField] private AssemblyLoadSystem _assemblyLoadSystemSO;
+        [SerializeField] private NoLoadDataListSO _noLoadDataListSO;
 
         /// <summary>
         /// 생성 용 Window
@@ -131,8 +132,12 @@ namespace LJS.Editing.SOManagement
             _rootElement = root.Q<VisualElement>("SoManagement");
 
             _assemblyLoadSystemSO.RefreshType();
-            foreach (var type in _assemblyLoadSystemSO.ReturnLoadTypeList(true))
+            List<Type> typeList = _assemblyLoadSystemSO.ReturnLoadTypeList(true);
+            foreach (var type in typeList)
             {
+                if (type == null) continue;
+                Debug.Log(type.ToString());
+                if (_noLoadDataListSO.NoLoadDataList.Contains(type.ToString())) continue;
                 // Debug.Log(type);
                 
                 StringBuilder strBuilder = new StringBuilder();
@@ -150,6 +155,7 @@ namespace LJS.Editing.SOManagement
                 
                 var template = _tabSplitView.Instantiate().Q<VisualElement>();
                 VisualElement itemVisualList = template.Q<VisualElement>("ItemVisualList"); 
+
                 Stack<VisualElement> itemPoolStack = new();
                 foreach(var child in itemVisualList.Children()){
                     itemPoolStack.Push(child);
@@ -160,7 +166,8 @@ namespace LJS.Editing.SOManagement
                 {
                     path = AssetDatabase.GUIDToAssetPath(soPathArray[i]);
                     ScriptableObject so = AssetDatabase.LoadAssetAtPath<ScriptableObject>(path);
-                    VisualElement view = TryViewElementMake(so, type);
+                    if(so == null) continue;
+                    VisualElement view = TryViewElementMake(so, type, template);
                     tab.getSODict.Add(view, so);
                     tab.getSOList.Add(so);
                     _soPathDict.TryAdd(so, path);
@@ -183,6 +190,12 @@ namespace LJS.Editing.SOManagement
             {
                 Close();
                 GetWindow<SOManagementWindow>();
+            };
+
+            root.Q<Button>("SelectViewBtn").clicked += () =>
+            {
+                var window = GetWindow<SelectViewTypeWindow>();
+                window.SetInfo(typeList);
             };
             
             sw.Stop();
@@ -228,7 +241,8 @@ namespace LJS.Editing.SOManagement
         /// </summary>
         /// <param name="soData"> 만들 View의 Data </param>
         /// <returns></returns>
-        private VisualElement TryViewElementMake(ScriptableObject soData, Type type)
+        private VisualElement TryViewElementMake(ScriptableObject soData, Type type
+            , VisualElement view)
         {
             VisualElement element;
             if(_poolingSOVisualDict[type].Count > 0){
@@ -248,7 +262,7 @@ namespace LJS.Editing.SOManagement
                 
                 element.Add(label);
 
-                _currentSOView.Q<VisualElement>("ItemVisualList").Add(element);
+                view.Q<VisualElement>("ItemVisualList").Add(element);
             }
             element.name = soData.name;
             // Mouse Down Event
@@ -287,11 +301,18 @@ namespace LJS.Editing.SOManagement
                 
                 _fileNameField = _currentSOView.Q<TextField>("FileNameField");
                 _selectedLabel = _currentSOView.Q<Label>("NameLabel");
-                
+
+                int count = 0;
+                string[] soNameList = new string[_currentTab.getSOList.Count];
+                foreach (var so in _currentTab.getSOList)
+                {
+                    soNameList[count] = so.name;
+                    count++;
+                }
                 _searchField = _currentSOView.Q<ToolbarPopupSearchField>("ItemSearchBar");
                 _windowSearchSystem.SetupSearchSystem(_searchField, 
-                    _currentTab.getSOList.ToArray());
-                _windowSearchSystem.OnSearchFieldValueChangedAction += HandleSearchEvent;
+                    soNameList);
+                _windowSearchSystem.OnSearchFieldValueChangedAction += HandleSearchFunc;
             }
 
             /// <summary>
@@ -299,7 +320,7 @@ namespace LJS.Editing.SOManagement
             /// Visual를 껐다 켜주면서 Search 시스템을 구현했음
             /// </summary>
             /// <param name="obj"></param>
-            private void HandleSearchEvent(ScriptableObject[] dataArray)
+            private void HandleSearchFunc(string[] dataArray)
             {
                 VisualElement currentVisualList = 
                     _currentSOView.Q<VisualElement>("ItemVisualList");
@@ -313,7 +334,7 @@ namespace LJS.Editing.SOManagement
                 {
                     for (int i = 0; i < dataArray.Length; ++i)
                     {
-                        if (dataArray[i].name == element.name && 
+                        if (dataArray[i] == element.name && 
                             !_poolingSOVisualDict[_currentData.GetType()].Contains(element))
                         {
                             ChangeDisplayType(element, DisplayStyle.Flex);
@@ -397,7 +418,8 @@ namespace LJS.Editing.SOManagement
 
                 _selectedLabel.text = changeTarget.name;
 
-                viewTable.Add(TryViewElementMake(changeTarget, changeTarget.GetType()));
+                viewTable.Add(TryViewElementMake(changeTarget, changeTarget.GetType()
+                    , _currentSOView));
                 Debug.
                     Log($"Success Rename SO, Name : {changeTarget.name} Path : {path}/{changeTarget.name}.asset");
             }
@@ -474,7 +496,8 @@ namespace LJS.Editing.SOManagement
                 _fileTree.minSize = minmaxSize;
                 _fileTree.maxSize = minmaxSize;
                 _fileTree.SetInfo(soType, (item) => {
-                    VisualElement newView = TryViewElementMake(item, item.GetType());
+                    VisualElement newView = TryViewElementMake(item, item.GetType()
+                        , _currentSOView);
                     _currentTab.getSODict.Add(newView, item);
                     _soPathDict.Add(item, AssetDatabase.GetAssetPath(item));
                 });
@@ -521,6 +544,5 @@ namespace LJS.Editing.SOManagement
             element.style.display = display;
         }
     }
-
 }
 #endif
