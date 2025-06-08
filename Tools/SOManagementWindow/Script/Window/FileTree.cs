@@ -289,7 +289,7 @@ public class FileTree : EditorWindow
             _currentVisualFileList = element;
             sb.Clear();
             sb.Append(folderName);
-            sb.Append("- size : ");
+            sb.Append(" - size : ");
             sb.Append(folderSize);
             _folderNameLabel.text = sb.ToString();
             return;

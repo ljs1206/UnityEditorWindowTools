@@ -3,7 +3,7 @@
     <engine:VisualElement name="Toolbar" style="flex-grow: 0;">
         <engine:VisualElement name="Group_1" style="flex-grow: 1; flex-direction: row;">
             <engine:Label text="Select View Window" name="Title_Label" style="font-size: 15px; -unity-font-definition: url(&quot;project://database/Assets/SOManagementWindow/Font/DNFForgedBlade-Medium.ttf?fileID=12800000&amp;guid=57d31f5b8589fcb4685194f4e84723b1&amp;type=3#DNFForgedBlade-Medium&quot;); border-bottom-width: 1px; border-bottom-color: rgb(47, 47, 47);" />
-            <engine:Button text="Select Complete" name="CompleteBtn" style="-unity-font-definition: url(&quot;project://database/Assets/SOManagementWindow/Font/DNFForgedBlade-Medium.ttf?fileID=12800000&amp;guid=57d31f5b8589fcb4685194f4e84723b1&amp;type=3#DNFForgedBlade-Medium&quot;); align-self: flex-start;" />
+            <engine:Button text="Select_Complete" name="CompleteBtn" style="-unity-font-definition: url(&quot;project://database/Assets/SOManagementWindow/Font/DNFForgedBlade-Medium.ttf?fileID=12800000&amp;guid=57d31f5b8589fcb4685194f4e84723b1&amp;type=3#DNFForgedBlade-Medium&quot;); align-self: flex-start;" />
         </engine:VisualElement>
         <engine:VisualElement name="Group_2" style="flex-grow: 1; flex-direction: row;">
             <engine:Toggle label="All" name="Toggle_AllSelect" />
